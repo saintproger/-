@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS CATALOG</title>
+    <!-- 🔗 СОЕДИНЕНИЕ: Подключаем внешний CSS-файл со стилями -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>BS CATALOG</h1>
+        <p>Стиль вне времени</p>
+    </header>
+
+    <div class="controls">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Поиск по коллекции...">
+        </div>
+        <div class="filter-buttons" id="filterGroup">
+            <button class="btn active" data-filter="all">Показать всё</button>
+            <button class="btn" data-filter="jewelry">Ювелирные изделия</button>
+            <button class="btn" data-filter="perfume">Парфюмерия</button>
+            <button class="btn" data-filter="accessories">Аксессуары</button>
+            <button class="btn" data-filter="clothes">Одежда</button>
+        </div>
+    </div>
+
+    <!-- Сетка товаров -->
+    <main class="catalog-container" id="catalogGrid"></main>
+
+    <!-- Полноэкранное приватное модальное окно -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            
+            <div class="modal-gallery">
+                <img src="" id="modalMainImg" class="modal-main-img" alt="Product Image">
+                <div id="modalThumbnails" class="modal-thumbnails"></div>
+            </div>
+            
+            <div class="modal-info-side">
+                <span id="modalCategory" class="modal-category-tag"></span>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-desc" id="modalDesc"></p>
+                <ul id="modalDetails" class="modal-details-list"></ul>
+                <div class="modal-price" id="modalPrice"></div>
+                <button class="order-btn" onclick="alert('Запрос успешно передан персональному консьержу.')">Private Inquiry</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔗 СОЕДИНЕНИЕ: Подключаем внешний JavaScript-файл с логикой -->
+    <script src="script.js"></script>
+</body>
+</html>

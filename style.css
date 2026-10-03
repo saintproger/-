@@ -1,0 +1,334 @@
+/* Премиальные шрифты и базовые настройки */
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    background-color: #fcfcfc; 
+    color: #1a1a1a; 
+    font-family: 'Montserrat', sans-serif; 
+    letter-spacing: 0.5px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Шапка в стиле минималистичного бутика */
+header { 
+    padding: 90px 20px 40px 20px; 
+    text-align: center; 
+    background: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+}
+header h1 { 
+    font-family: 'Cinzel', serif; 
+    font-size: 40px; 
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: #111;
+    margin-bottom: 15px;
+}
+header p {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #8c8c8c;
+    font-weight: 300;
+}
+
+/* Панель управления (Фильтры и поиск) */
+.controls { 
+    max-width: 1300px; 
+    margin: 40px auto 50px auto; 
+    padding: 0 40px; 
+    display: flex; 
+    flex-direction: column;
+    gap: 30px;
+    align-items: center; 
+}
+
+/* Минималистичный поиск */
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+.search-input { 
+    width: 100%;
+    padding: 12px 10px; 
+    border: none;
+    border-bottom: 1px solid #d9d9d9;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; 
+    text-align: center;
+    letter-spacing: 1px;
+    transition: border-color 0.4s;
+}
+.search-input:focus {
+    outline: none;
+    border-bottom: 1px solid #111;
+}
+
+/* Премиум-табы фильтрации */
+.filter-buttons { display: flex; gap: 35px; flex-wrap: wrap; justify-content: center; }
+.btn { 
+    padding: 8px 0; 
+    border: none; 
+    background: none; 
+    cursor: pointer; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #7a7a7a;
+    position: relative;
+    transition: color 0.3s;
+}
+.btn:hover, .btn.active { color: #111; }
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: #111;
+    transition: all 0.3s ease;
+}
+.btn.active::after, .btn:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Люксовая сетка каталога */
+.catalog-container { 
+    max-width: 1300px; 
+    margin: 0 auto; 
+    padding: 0 40px 100px 40px; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); 
+    gap: 60px 40px; 
+}
+
+/* Карточка люкс-товара */
+.product-card { 
+    background: transparent; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    cursor: pointer;
+}
+
+/* Контейнер для фото с эффектом "зума" при наведении */
+.img-wrapper {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background: #f7f7f7;
+    position: relative;
+    margin-bottom: 25px;
+}
+.product-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.product-card:hover .product-img { 
+    transform: scale(1.04); 
+}
+
+/* Информация о товаре в сетке */
+.product-info { 
+    display: flex; 
+    flex-direction: column; 
+    text-align: center;
+}
+.product-category { 
+    font-size: 10px; 
+    color: #c5a880; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    margin-bottom: 8px; 
+    font-weight: 400;
+}
+.product-title { 
+    font-family: 'Cinzel', serif;
+    font-size: 19px; 
+    font-weight: 400;
+    margin-bottom: 12px; 
+    color: #111; 
+    letter-spacing: 1px;
+}
+.product-desc { 
+    font-size: 13px; 
+    color: #666; 
+    line-height: 1.6; 
+    margin-bottom: 18px; 
+    font-weight: 300;
+    padding: 0 15px;
+}
+.product-price { 
+    font-size: 15px; 
+    font-weight: 400; 
+    color: #111; 
+    letter-spacing: 1px;
+}
+
+/* Переосмысленное двухколонное люкс-окно */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(255, 255, 255, 0.99); 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000; 
+    padding: 20px; 
+    backdrop-filter: blur(10px);
+}
+.modal-content { 
+    background: #ffffff; 
+    padding: 60px; 
+    max-width: 1150px; 
+    width: 100%; 
+    position: relative; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.03);
+    animation: fadeInLuxury 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+.close-modal { 
+    position: absolute; 
+    top: 25px; right: 30px; 
+    font-size: 35px; cursor: pointer; color: #111; 
+    font-weight: 200; transition: transform 0.3s;
+    line-height: 1;
+}
+.close-modal:hover { transform: rotate(90deg); }
+
+/* Блок фото-галереи в окне */
+.modal-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.modal-main-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    background: #f7f7f7;
+    transition: opacity 0.25s ease;
+}
+.modal-thumbnails {
+    display: flex;
+    gap: 12px;
+}
+.thumb-img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    opacity: 0.5;
+}
+.thumb-img:hover, .thumb-img.active {
+    border-color: #111;
+    opacity: 1;
+}
+
+/* Блок текстовой информации в окне */
+.modal-info-side {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+.modal-category-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #c5a880;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+.modal-title { 
+    font-family: 'Cinzel', serif; 
+    font-size: 34px; 
+    margin-bottom: 20px; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+.modal-desc { 
+    font-size: 14px; 
+    color: #444; 
+    margin-bottom: 30px; 
+    line-height: 1.8; 
+    font-weight: 300;
+}
+
+/* Список характеристик */
+.modal-details-list {
+    list-style: none;
+    margin-bottom: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #f0f0f0;
+}
+.modal-details-list li {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 300;
+    position: relative;
+    padding-left: 20px;
+}
+.modal-details-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #c5a880;
+}
+
+.modal-price { 
+    font-size: 26px; 
+    font-weight: 400; 
+    color: #111; 
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+/* Кутюрная кнопка */
+.order-btn {
+    background: #111;
+    color: white;
+    border: 1px solid #111;
+    padding: 18px 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: max-content;
+}
+.order-btn:hover {
+    background: transparent;
+    color: #111;
+}
+
+@keyframes fadeInLuxury { 
+    from { opacity: 0; transform: translateY(20px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* Адаптивность */
+@media (max-width: 950px) {
+    .modal { overflow-y: auto; align-items: flex-start; padding: 10px; }
+    .modal-content { grid-template-columns: 1fr; gap: 35px; padding: 40px 25px; margin-top: 40px; }
+    .modal-main-img { height: 380px; }
+    .order-btn { width: 100%; text-align: center; }
+    .catalog-container { padding: 0 20px 60px 20px; gap: 45px; }
+}
